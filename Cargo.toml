@@ -1,0 +1,10 @@
+[package]
+name = "thread-id"
+version = "0.1.0"
+authors = ["Ruud van Asseldonk <dev@veniogames.com>"]
+license = "Apache-2.0"
+keywords = ["thread", "pthread"]
+description = "Get a unique thread ID"
+
+[dependencies]
+libc = "0.2.6"
