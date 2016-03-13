@@ -10,17 +10,14 @@
 //! # Example
 //!
 //! ```
-//! use std::sync::mpsc;
 //! use std::thread;
 //! use thread_id;
 //!
-//! let (tx, rx) = mpsc::channel();
-//! thread::spawn(move || tx.send(thread_id::get()).unwrap()).join().unwrap();
+//! thread::spawn(move || {
+//!     println!("spawned thread has id {}", thread_id::get());
+//! });
 //!
-//! let main_tid = thread_id::get();
-//! let other_tid = rx.recv().unwrap();
-//! assert!(main_tid != other_tid);
-//! println!("main thread has id {}, other had id {}", main_tid, other_tid);
+//! println!("main thread has id {}", thread_id::get());
 //! ```
 
 #![warn(missing_docs)]
