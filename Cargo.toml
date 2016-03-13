@@ -7,6 +7,7 @@ readme = "readme.md"
 keywords = ["thread", "pthread", "getcurrentthreadid"]
 description = "Get a unique thread ID"
 repository = "https://github.com/ruud-v-a/thread-id"
+documentation = "https://ruud-v-a.github.io/thread-id/doc/v1.0.0/thread-id/"
 
 [dependencies]
 libc = "0.2.6"

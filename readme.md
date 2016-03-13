@@ -5,6 +5,7 @@ Get a unique ID for the current thread in Rust.
 [![Build Status][tr-img]][tr]
 [![Build Status][av-img]][av]
 [![Crates.io version][crate-img]][crate]
+[![Documentation][docs-img]][docs]
 
 For diagnostics and debugging it can often be useful to get an ID that is
 different for every thread. The standard library does not expose a way to do
@@ -40,5 +41,7 @@ to your copyright notice.
 [av]:        https://ci.appveyor.com/project/ruud-v-a/thread-id
 [crate-img]: http://img.shields.io/crates/v/thread-id.svg
 [crate]:     https://crates.io/crates/thread-id
+[docs-img]:  http://img.shields.io/badge/docs-online-blue.svg
+[docs]:      https://ruud-v-a.github.io/thread-id/doc/v1.0.0/thread-id/
 [apache2]:   https://www.apache.org/licenses/LICENSE-2.0
 [except]:    https://www.gnu.org/licenses/gpl-faq.html#GPLIncompatibleLibs
