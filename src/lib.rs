@@ -45,3 +45,16 @@ fn get_internal() -> u64 {
 fn get_internal() -> u64 {
     unsafe { kernel32::GetCurrentThreadId() as u64 }
 }
+
+#[test]
+fn distinct_threads_have_distinct_ids() {
+    use std::sync::mpsc;
+    use std::thread;
+
+    let (tx, rx) = mpsc::channel();
+    thread::spawn(move || tx.send(::get()).unwrap()).join().unwrap();
+
+    let main_tid = ::get();
+    let other_tid = rx.recv().unwrap();
+    assert!(main_tid != other_tid);
+}
