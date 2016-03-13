@@ -7,6 +7,9 @@
 
 //! Thread-ID: get a unique ID for the current thread.
 //!
+//! For diagnostics and debugging it can often be useful to get an ID that is
+//! different for every thread. This crate provides that functionality.
+//!
 //! # Example
 //!
 //! ```
@@ -28,7 +31,11 @@ extern crate libc;
 #[cfg(windows)]
 extern crate kernel32;
 
-/// Returns a number that is unique per thread.
+/// Returns a number that is unique to the calling thread.
+///
+/// Calling this function twice from the same thread will return the same
+/// number. Calling this function from a different thread will return a
+/// different number.
 pub fn get() -> u64 {
     get_internal()
 }
