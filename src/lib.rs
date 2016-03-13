@@ -25,7 +25,11 @@
 
 #![warn(missing_docs)]
 
+#[cfg(unix)]
 extern crate libc;
+
+#[cfg(windows)]
+extern crate kernel32;
 
 /// Returns a number that is unique per thread.
 pub fn get() -> u64 {
@@ -35,4 +39,9 @@ pub fn get() -> u64 {
 #[cfg(unix)]
 fn get_internal() -> u64 {
     unsafe { libc::pthread_self() as u64 }
+}
+
+#[cfg(windows)]
+fn get_internal() -> u64 {
+    unsafe { kernel32::GetCurrentThreadId() as u64 }
 }
